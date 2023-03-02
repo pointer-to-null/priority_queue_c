@@ -90,7 +90,7 @@ qpStatus_t qpPush(qpQueue_t *queue, void *push_data, uint32_t push_priority) {
 			queue->head_node = temp_node;
 		} else {
 			qpNode_t *start_node = queue->head_node;
-			while((start_node->next_node != NULL) && (start_node->next_node->priority < push_priority)) {
+			while((start_node->next_node != NULL) && (start_node->next_node->priority <= push_priority)) {
 				start_node = start_node->next_node;
 			}
 			temp_node->next_node = start_node->next_node;
